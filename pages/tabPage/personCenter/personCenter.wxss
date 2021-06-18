@@ -1,0 +1,54 @@
+
+.user_info{
+  height: 264rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+}
+.user_info .avatar{
+  height: 136rpx;
+  width: 136rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user_info .desc{
+  padding-left: 32rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #515A6E;
+}
+.function{
+  padding: 0 40rpx;
+  margin-bottom: 128rpx;
+}
+.function .function_item{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.function_item .enter{
+  width: 32rpx;
+  height: 32rpx;
+}
+.function_item .title{
+  display: flex;
+  align-items: center;
+}
+.function_item .title view{
+  padding-left: 32rpx;
+  color: #515A6E;
+  font-size: 28rpx;
+}
+.function_item .title image{
+  width: 44rpx;
+  height: 44rpx;
+}
+.logout_btn{
+  height: 96rpx;
+  background: #1890FF;
+  border-radius: 8rpx;
+  color: #FFF;
+  font-size: 32rpx;
+  font-weight: 500;
+}

@@ -1,0 +1,12 @@
+
+<!-- <view class="check">
+  <form catchsubmit="formSubmit" >
+    <view class="write_info">
+     <view class="row" wx:for="{{writeInfo}}" wx:key="index">
+       <text>{{item.title}}</text><input type="text" placeholder="这是{{item.title}}" placeholder-class="row_input" name="{{item.name}}"/>
+     </view>
+    </view>
+    <button class="submit_btn f-ac-jc" style="width:100%" formType="submit">核销</button>
+  </form>
+</view> -->
+<text style="color:#333">开发中, 敬请期待...</text>

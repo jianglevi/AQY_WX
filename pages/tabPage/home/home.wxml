@@ -1,0 +1,39 @@
+<view class="info">
+  <view>
+    打印机状态：<text class="tag" bindtap="pageToPrint">{{printStatus}}</text>
+  </view>
+  <view>
+    <!-- <text>模式：<text class="tag">自动</text></text>
+    <text>白天</text> -->
+  </view>
+</view>
+<view class="scan_map">
+  <image src="/images/img/map.png" class="image" mode="aspectFill"></image>
+  <view class="location remark"><image src="/images/img/location.png" mode="aspectFit"></image></view>
+  <view class="update remark"><image src="/images/img/update.png" mode="aspectFit"></image></view>
+  <view class="allscreen remark"><image src="/images/img/allscreen.png" mode="aspectFit"></image></view>
+  <view class="scan" bindtap="scan">
+    <image src="/images/img/scan.png" mode="aspectFit"></image>
+    <text>扫描车牌</text>
+  </view>
+</view>
+<view class="information_show">
+  <view class="title">中铁建工1号地块</view>
+  <view class="rander">
+    <view class="header">
+      <text>大学城华工</text><text class="total">总计：69车</text>
+    </view>
+    <view class="table">
+      <view class="row_header">
+        <text style="flex:1">编号</text>
+        <text style="flex:2">车辆号码</text>
+        <text style="flex:2">工单</text>
+      </view>                                                      
+      <view wx:for="{{8}}" wx:key="index">
+        <text style="flex:1">1</text>
+        <text style="flex:2">24</text>
+        <text style="flex:2">123456</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+
+<view class="login">
+  <image src="/images/img/login.png" mode="aspectFill" class="bg"></image>
+  <view class="content">
+    <form class="login_info" catchsubmit="login" >
+     <view class="input_out f-ac">
+        <image src="/images/img/user.png" mode="aspectFill"></image><input type="text" placeholder="请输入账号" name="username" value="{{username}}"/>
+     </view>
+     <view class="input_out f-ac">
+        <image src="/images/img/lock.png" mode="aspectFill"></image><input type="password" placeholder="请输入密码" name="password"  value="{{password}}"/>
+     </view>
+     <view class="changeLang">切换语言 (switch language) 简体中文</view>
+     <button class="login_btn" style="width: 582rpx;" formType="submit">
+      登 录
+     </button>
+    </form>
+    <view class="forget_password f-jc login_text">忘记密码</view>
+    <view class="f-jc login_text p-b12">广州云佳软件科技有限公司</view>
+    <view class="f-jc login_text">提供技术支持</view>
+  </view>
+</view>

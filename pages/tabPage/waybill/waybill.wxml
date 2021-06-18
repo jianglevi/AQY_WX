@@ -1,0 +1,31 @@
+
+<view>
+  <view class="search_frame">
+        <input type="text" placeholder-class="search_placeholder" placeholder="请输入查询内容" bindinput="searchInput" value="{{searchText}}"class="search_input"/>       
+        <text class="title" bindtap="search">查询</text>
+   </view>
+   <scroll-view scroll-y="true" class="scroll_wrapping content" bindscrolltolower="lower">
+     <view class="card" wx:for="{{waybillList}}" wx:key="index">
+        <view class="header-title">
+          <view class="number">单号：{{item.number}}</view>
+          <view class="created">{{item.created}}</view>
+        </view>
+        <view class="info">
+          <view >车牌：{{item.carNumber}}</view>
+          <view class="right">司机姓名：{{item.driverName}}</view>
+          <view class="path">路线：{{item.consignerAddress}} - {{item.consigneeAddress}}</view>
+          <view >运费：{{item.driverFreight}}</view>
+        </view>
+        <view class="status f-ac-jc" bindtap="signOff" data-item="{{item}}">
+          <text>签收</text>
+        </view>
+        <!-- <view class="status">
+          <text class="line">签收</text>
+          <text>撤销</text>
+        </view> -->
+     </view>
+     <view wx:if="{{waybillList.length == 0}}" class="f-ac-jc">
+        <text></text>
+     </view>
+   </scroll-view>
+</view>

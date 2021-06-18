@@ -1,0 +1,11 @@
+<import src="/utils/template/writeInfo.wxml" />
+<view class="check">
+  <form catchsubmit="formSubmit" >
+    <view class="write_info">
+      <block wx:for="{{writeInfo}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,name:item.name,range:item.range,event:item.event,index:index,value:item.value}}" />
+      </block>
+    </view>
+    <button class="submit_btn f-ac-jc" style="width:100%" formType="submit">保存</button>
+  </form>
+ </view>

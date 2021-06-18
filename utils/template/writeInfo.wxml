@@ -1,0 +1,77 @@
+<template name="write_info">
+  <view class="row" wx:if="{{type === 'input' || type === 'password'}}">
+    <text>{{title}}</text><input type="{{input ? input : 'text'}}" placeholder="请输入{{title}}" placeholder-class="row_input" name="{{name}}" value="{{value}}"  data-level="{{level}}" data-row="{{row}}"  bindinput="{{event ? event :'formInput'}}" data-index="{{index}}"/>
+  </view>
+  <view class="row" wx:elif="{{type === 'input-picker'}}">
+    <text>{{title}}</text>
+    <view class="picker f-ac-jb input-picker" style="flex:2">
+      <input type="text" placeholder="请输入{{title}}" placeholder-class="row_input" value="{{value}}"  data-level="{{level}}"  bindinput="{{event ? event :'formInputPicker'}}" data-index="{{index}}" bindfocus="formFocusPicker" />
+      <view class="picker_list" wx:if="{{(range.length != 0) && show}}">
+           <view wx:for="{{range}}" wx:key="i" wx:for-index="i" class="picker_item" hover-class="picker_item_hover" data-item="{{item}}" catchtap="formPickerItem"  data-level="{{level}}" data-index="{{index}}">
+              {{item.label}}
+           </view>
+       </view>
+    </view>
+  </view>
+  <view class="row" wx:elif="{{type === 'switch'}}">
+    <text>{{title}}</text>
+    <view class="picker f-ac-jb yet">
+      <switch checked="{{value}}" bindchange="{{event ? event :'formSwitch'}}"  size="small"  data-level="{{level}}" data-index="{{index}}"  color="#1890FF"
+      style="transform: scale(0.7);"/>
+    </view>
+  </view>
+  <view class="row" wx:elif="{{type === 'view'}}">
+    <text>{{title}}</text>
+    <view class="picker f-ac-jb" style="flex:2">
+      {{value ? value :''}}
+    </view>
+  </view>
+  <view class="row" wx:elif="{{type === 'date'}}">
+    <text>{{title}}</text>
+    <picker mode="date" value="{{value ? value:''}}" bindchange="{{event ? event : 'formDate'}}" data-name="{{name}}"
+      name="{{name}}" index="{{index}}" data-index="{{index}}" fields="{{time ? time : 'day'}}" data-name="{{name}}"  data-level="{{level}}">
+      <view class="picker f-ac-jb {{value?'':'yet'}}">{{value ? value :'请选择'+title}} <image src="/images/img/left.png"
+          wx:if="{{!value}}"></image>
+      </view>
+    </picker>
+  </view>
+  <view class="row" wx:elif="{{type === 'datetimes'}}">
+    <text>{{title}}</text>
+    <picker mode="multiSelector" value="{{range.dateTime ? range.dateTime:''}}" bindchange="{{event ? event : 'changeDateTime'}}" bindcolumnchange="changeDateTimeColumn" range="{{range.dateTimeArray}}" data-index="{{index}}" data-value="{{range.dateTime}}"  data-level="{{level}}"
+    data-index="{{index}}" data-range="{{range}}">
+      <view class="picker f-ac-jb {{range.dateTime?'':'yet'}}">{{range.dateTime.length>0 ?  range.dateTimeArray[0][range.dateTime[0]]+'-'+range.dateTimeArray[1][range.dateTime[1]]+'-'+range.dateTimeArray[2][range.dateTime[2]]+' '+range.dateTimeArray[3][range.dateTime[3]]+':'+range.dateTimeArray[4][range.dateTime[4]]+':'+range.dateTimeArray[5][range.dateTime[5]] :'请选择'+title}} <image src="/images/img/left.png"
+      wx:if="{{!value}}"></image>
+      </view>
+    </picker>
+  </view>
+  <view class="row" wx:elif="{{type === 'region'}}">
+    <text>{{title}}</text>
+    <picker mode="region" bindchange="{{event ? event : 'formRegion'}}" data-name="{{name}}"  data-level="{{level}}"
+      name="{{name}}" index="{{index}}" data-index="{{index}}" data-name="{{name}}" disabled="{{disabled}}" >
+      <view class="picker f-ac-jb {{value?'':'yet'}}">{{value.length>0 ? value[0]+'-'+value[1]+'-'+value[2] :'请选择'+title}} <image src="/images/img/left.png"
+          wx:if="{{!value}}"></image>
+      </view>
+    </picker>
+  </view>
+  <view class="row" wx:elif="{{type === 'picker_same'}}">
+    <text>{{title}}</text>
+    <picker  bindchange="{{event ? event : 'formPickerSame'}}" data-name="{{name}}" range-key="{{'label'}}" disabled="{{disabled}}"
+      range="{{range}}" data-index="{{index}}" data-range="{{range}}"  data-level="{{level}}" data-row="{{row}}">
+      <view class="picker f-ac-jb {{value?'':'yet'}}">{{value ? value :'请选择'+title}} <image src="/images/img/left.png"
+          wx:if="{{!value}}"></image>
+      </view>
+    </picker>
+  </view>
+  <view class="row" wx:elif="{{type === 'picker_diff'}}">
+    <text>{{title}}</text>
+    <picker value="{{value ? value : ''}}" bindchange="{{event ? event : 'formPickerDiff'}}" data-name="{{name}}" range-key="{{'label'}}"
+      range="{{range}}" data-index="{{index}}" data-range="{{range}}"  data-level="{{level}}"  data-row="{{row}}">
+      <view class="picker f-ac-jb {{value?'':'yet'}}">{{value ? range[value].label :'请选择'+title}} <image src="/images/img/left.png"
+          wx:if="{{!value}}"></image>
+      </view>
+    </picker>
+  </view>
+  <view class="row" wx:else>
+    <text class="{{class}}">{{title}}</text><text></text>
+  </view>
+</template>

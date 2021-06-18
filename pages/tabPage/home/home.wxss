@@ -1,0 +1,125 @@
+.info {
+  color: #515A6E;
+  font-size: 26rpx;
+  padding: 32rpx 24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info .tag {
+  color: #1890FF;
+  padding-right: 48rpx;
+}
+
+.scan_map {
+  width: 100%;
+  height: 702rpx;
+  position: relative;
+}
+
+.scan_map .image {
+  height: 100%;
+  width: 100%;
+}
+
+.remark {
+  background-color: #FFF;
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remark image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.location {
+  bottom: 32rpx;
+  left: 24rpx;
+}
+
+.update {
+  bottom: 146rpx;
+  left: 24rpx;
+}
+
+.allscreen {
+  bottom: 32rpx;
+  right: 24rpx;
+}
+
+.scan {
+  position: absolute;
+  width: 280rpx;
+  height: 100rpx;
+  background: #17233D;
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 32rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.scan image {
+  width: 37rpx;
+  height: 37rpx;
+}
+
+.scan text {
+  padding-left: 16rpx;
+  font-size: 28rpx;
+  color: #CCC;
+  letter-spacing: 1rpx;
+}
+
+.information_show {
+  padding-top: 40rpx;
+}
+
+.information_show .title {
+  font-size: 36rpx;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}
+
+.information_show .rander {
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.information_show .rander .header{
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-weight: 700;
+  padding-bottom: 20rpx;
+}
+.rander .header .total{
+  color: #1a5892;
+}
+.rander .table view{
+  width: 100%;
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+  font-size: 28rpx;
+  color: rgb(129, 123, 123);
+}
+.rander .table view text{
+  display: flex;
+  justify-content: center;
+}
+.rander .table .row_header{
+  background-color: #eee;
+  font-size: 32rpx;
+  color: #000;
+}

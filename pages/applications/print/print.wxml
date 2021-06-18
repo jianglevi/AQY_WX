@@ -1,0 +1,60 @@
+<wxs module="utils">
+  module.exports.max = function(n1, n2) {
+    return Math.max(n1, n2)
+  }
+  module.exports.len = function(arr) {
+    arr = arr || []
+    return arr.length
+  }
+</wxs>
+
+
+<view class="search-btn">
+   <button class='f-ac-jc' bindtap="openBluetoothAdapter" hover-class="navigator-hover" style="width:50%">搜索打印机</button>
+   <button bindtap="stopBluetoothDevicesDiscovery"  class='f-ac-jc stop'  style="width:50%;">停止扫描</button>
+</view>
+<view class='p-box'  wx:if="{{devices.length > 0}}">
+  <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
+  <scroll-view class="device_list" scroll-y scroll-with-animation>
+    <view wx:for="{{devices}}" wx:key="index"
+    data-device-id="{{item.deviceId}}"
+    data-name="{{item.name || item.localName}}"
+    data-index='{{index}}'
+    bindtap="showActionSheet"
+    class="device_item"
+    hover-class="device_item_hover">
+      <view>
+        <view style="font-size: 16px; color: #333;" wx:if="{{item.remark}}">{{item.remark}}({{item.name}})</view>
+        <view style="font-size: 16px; color: #333;" wx:else>{{item.name}}</view>
+        <view style="font-size: 10px">信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+        <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
+        <view style="font-size: 10px" >Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view>
+        <view class=''><text class='iconfont icon-xiangyou-copy'></text></view>
+       </view>
+      <button wx:if="{{item.deviceId == deviceId}}" size="mini" catchtap="closeBLEConnection" class="cutLink" hover-class="cutLinkHover">断开连接</button>
+    </view>
+  </scroll-view>
+
+</view>
+
+<view wx:else>
+<view class='nolist'>你还没有添加打印机呀~~</view>
+<view class='tip-box'>
+  <view class='tip-title'>温馨提示：</view>
+  <view class='tip-item'>1. 打开蓝牙打印机</view>
+  <view class='tip-item'>2. 打开手机蓝牙，部分安卓手机需要打开“定位”功能</view>
+  <view class='tip-item'>3. 以上操作都已执行，还无法找到打印机，请重启打印机后再次搜索</view>
+</view>
+</view>
+<view class='maskbox' wx:if="{{showM}}" bindtap='cancelR'>
+  <view class='editbox' catchtap="catch">
+    <view class='e-l e-title'>编辑备注</view>
+    <view class='e-l e-input'>
+      <input placeholder='请输入' bindinput='inputRemark' value='{{remark}}' class='inputbox' cursor-spacing="100"></input>
+    </view>
+    <view class='e-l btn-box'>
+      <view class='c-btn cancel' bindtap='cancelR'>取消</view>
+      <view class='c-btn confirm' bindtap='confirmR'>确定</view>
+    </view>
+  </view>
+</view>

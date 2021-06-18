@@ -1,0 +1,24 @@
+
+<view> 
+  <view class="user_info">
+    <open-data type="userAvatarUrl" class="avatar"></open-data>
+    <view class="desc">
+      <open-data type="userNickName"></open-data>
+      <view>云佳科技</view>
+    </view>
+  </view>
+  <view class="function">
+     <view class="function_item" wx:for="{{functionList}}" wx:key="index" bindtap="functionTap" data-name="{{item.name}}" data-url="{{item.url}}">
+        <view class="title">
+          <image src="/images/img/{{item.img}}.png"></image>
+          <view>{{item.name}}</view>
+        </view>
+        <image src="/images/img/left.png" class="enter"></image>
+     </view>
+  </view>
+  <view style="padding:0 24rpx">
+    <button class="logout_btn f-ac-jc" style="width:100%" bindtap="logOut">
+      退出登入
+    </button>
+  </view>
+</view>

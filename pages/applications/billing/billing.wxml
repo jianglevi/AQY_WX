@@ -1,0 +1,51 @@
+<import src="/utils/template/writeInfo.wxml" />
+<view class="check">
+  <form catchsubmit="formSubmit" >
+    <view class="write_info">
+      <block wx:for="{{openBillInfomation}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,name:item.name,range:item.range,event:item.event,index:index,value:item.value,level:item.level}}" wx:if="{{!item.hide}}"/>
+      </block>
+    </view>
+    <view class="write_info">
+      <block wx:for="{{consigner}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,name:item.name,range:item.range,event:item.event,index:index,value:item.value,level:item.level,disabled:item.disabled}}" wx:if="{{!item.hide}}"/>
+      </block>
+    </view>
+    <view class="write_info">
+      <block wx:for="{{consignee}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,name:item.name,range:item.range,event:item.event,index:index,value:item.value,level:item.level,disabled:item.disabled}}" wx:if="{{!item.hide}}"/>
+      </block>
+    </view>
+    <view class="write_info"  wx:for="{{cargoList}}" wx:for-item="Item" wx:for-index="row" wx:key="row">
+      <template is="write_info" data="{{title:'货物信息',class:'bold',type:'switch',event:'cargoSwitch'}}" wx:if="{{row==0}}"/>
+      <block wx:for="{{Item}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,name:item.name,range:item.range,event:item.event,index:index,value:item.value,level:item.level,row:row,disabled:item.disabled}}" wx:if="{{!item.hide}}"/>
+      </block>
+    </view>
+    <view class="addGoods f-ac-jc"><text class="detele" bindtap="goodsDetele">- 删除货物</text><text bindtap="goodsAdd"> + 添加货物</text></view>
+    <view class="write_info">
+      <block wx:for="{{freightIn}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,range:item.range,event:item.event,index:index,value:item.value,level:item.level}}" wx:if="{{!item.hide}}"/>
+      </block>
+    </view>
+    <view class="write_info">
+      <block wx:for="{{carrier}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,name:item.name,range:item.range,event:item.event,index:index,value:item.value,level:item.level}}" wx:if="{{!item.hide}}"/>
+      </block>
+    </view>
+    <view class="write_info">
+      <block wx:for="{{payee}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,name:item.name,range:item.range,event:item.event,index:index,value:item.value,level:item.level}}" wx:if="{{!item.hide}}"/>
+      </block>
+    </view>
+    <view class="write_info">
+      <block wx:for="{{others}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,class:item.class,name:item.name,range:item.range,event:item.event,index:index,value:item.value,level:item.level}}" wx:if="{{!item.hide}}"/>
+      </block>
+    </view>
+    <view class="form_btn">
+      <button class="clear f-ac-jc" bindtap="clearForm">清除信息</button>
+      <button class="save f-ac-jc" formType="submit">保存并打印</button>
+    </view>
+  </form>
+</view>

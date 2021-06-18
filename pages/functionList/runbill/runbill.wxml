@@ -1,0 +1,12 @@
+
+<import src="/utils/template/writeInfo.wxml" />
+<view class="check" catchtap="hidePicker">
+ <form catchsubmit="formSubmit">
+   <view class="write_info">
+      <block wx:for="{{writeInfo}}" wx:key="index">
+        <template is="write_info" data="{{type:item.type,title:item.title,show:item.show,name:item.name,range:item.range,index:index,value:item.value}}" />
+      </block>
+    </view>
+    <button class="submit_btn f-ac-jc" style="width:100%" formType="submit">同步</button>
+ </form>
+</view>
