@@ -11,7 +11,7 @@
      </view>
      <view class="changeLang">切换语言 (switch language) 简体中文</view>
      <button class="login_btn" style="width: 582rpx;" formType="submit">
-      登 录
+      登 录 
      </button>
     </form>
     <view class="forget_password f-jc login_text">忘记密码</view>

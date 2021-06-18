@@ -31,7 +31,7 @@
       </view>                                                      
       <view wx:for="{{8}}" wx:key="index">
         <text style="flex:1">1</text>
-        <text style="flex:2">24</text>
+        <text style="flex:2">78</text>
         <text style="flex:2">123456</text>
       </view>
     </view>
